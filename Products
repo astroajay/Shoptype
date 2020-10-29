@@ -1,0 +1,1102 @@
+<style type="text/css">
+    .image {
+      overflow: hidden;
+      width: 100%;
+      height: 500px;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+
+    .prod-fullprice {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding-right: 10px;
+      padding-left: 10px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      background-color: #50aeef;
+      font-family: Lato, sans-serif;
+      color: hsla(0, 0%, 100%, 0.6);
+      line-height: 20px !important;
+      font-weight: 400 !important;
+      text-decoration: line-through;
+    }
+
+    .prod-price {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding-right: 10px;
+      padding-left: 10px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #50aeef;
+      font-family: Lato, sans-serif;
+      color: #fff;
+      line-height: 20px !important;
+      font-style: italic !important;
+      font-weight: 700 !important;
+    }
+
+    .price-block {
+      position: relative;
+      left: auto;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      max-width: 100%;
+      margin-top: -20px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: hsla(0, 0%, 100%, 0);
+    }
+
+
+    .products-list {
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .prod-item {
+      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 18%;
+      height: 320px;
+      margin: 20px auto;
+      float: left;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 19%;
+      -ms-flex: 0 0 19%;
+      flex: 0 0 19%;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #aaa;
+      text-decoration: none;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      border-style: none;
+    }
+
+    .product-details {
+      position: relative;
+      left: 0%;
+      top: auto;
+      right: auto;
+      bottom: 0%;
+      width: 200px;
+      max-width: 100%;
+      background-color: #fff;
+    }
+
+
+    .product-main {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 20px;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .product-images-section {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 50%;
+      -ms-flex: 0 50%;
+      flex: 0 50%;
+    }
+
+    .product-images {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .main-product-images {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      overflow: scroll;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      max-width: 400px;
+    }
+
+    .main-product-details {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding-left: 10px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 50%;
+      -ms-flex: 0 50%;
+      flex: 0 50%;
+    }
+
+    .productimage {
+      width: 100%;
+      height: 260px;
+      min-height: 260px;
+      max-height: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 100%;
+      -ms-flex: 0 100%;
+      flex: 0 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+
+    .productimage.image-large {
+      height: 100%;
+    }
+
+    .productimage.image-small {
+      height: 160px;
+    }
+
+    .product-title {
+      position: relative;
+      left: 0%;
+      top: auto;
+      right: auto;
+      bottom: 0%;
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      height: 44px;
+      max-width: 100%;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding: 5px 0px 0px;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: hsla(0, 0%, 100%, 0);
+      color: #000;
+      font-size: 14px !important;
+      line-height: 18px !important;
+      font-weight: 700 !important;
+      text-align: left;
+    }
+
+    .product-brand {
+      padding-right: 10px;
+      padding-left: 0px;
+      color: #c4a33b;
+    }
+
+    .product-festured-image {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-bottom: 10px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .main-product-image {
+      margin-right: 5px;
+      margin-left: 5px;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 100%;
+      -ms-flex: 0 100%;
+      flex: 0 100%;
+    }
+
+    .main-product-image-small {
+      width: 80px;
+      min-width: 80px;
+      cursor: pointer;
+      height: auto;
+    }
+
+    .main-product-title {
+      margin-top: 0px;
+      margin-bottom: 5px;
+      font-size: 30px !important;
+      line-height: 34px !important;
+    }
+
+    .related-products-block {
+      width: 100%;
+    }
+
+    .related-products-title {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .related-products-list {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .related-product {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      max-width: 1200px;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    .main-product-brand {
+      margin-bottom: 20px;
+    }
+
+    .main-product-description {
+      max-height: 200px;
+      margin-bottom: 20px;
+      overflow: scroll;
+    }
+
+    .main-product-tags {
+      margin-bottom: 20px;
+      max-height: 50px;
+      overflow: scroll;
+    }
+
+    .featured-image {
+      width: auto;
+      height: 300px;
+      -o-object-fit: contain;
+      object-fit: contain;
+    }
+
+    .product-buy {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+    }
+
+    .product-buy-options {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 33%;
+      -ms-flex: 0 33%;
+      flex: 0 33%;
+    }
+
+    .buy-section {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .cosell {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .buy-button {
+      height: auto;
+      margin-right: 10px;
+      margin-left: 10px;
+      border-radius: 20px;
+      background-color: #50aeef;
+      color: #fff;
+      font-size: 16px !important;
+      line-height: 40px !important;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .newfeature {
+      margin-bottom: 5px;
+      color: #50aeef;
+      font-size: 12px !important;
+      text-align: center;
+    }
+
+    .cosell-button {
+      margin-right: 0px;
+      margin-left: 20px;
+      padding: 0px 20px;
+      border-radius: 20px;
+      background-color: #f1d16d;
+      color: #fff;
+      font-size: 16px !important;
+      line-height: 40px !important;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .cosell-text {
+      margin-top: 5px;
+      color: #c4a33b;
+      font-size: 12px !important;
+      text-align: center;
+    }
+
+    .buy-options {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+
+    .buy-option-text {
+      width: 150px;
+      padding-left: 0px;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 50%;
+      -ms-flex: 0 50%;
+      flex: 0 50%;
+      line-height: 30px;
+    }
+
+    .div-block-10 {
+      height: 30px;
+      margin-right: 20px;
+      padding-right: 10px;
+      padding-left: 10px;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 50%;
+      -ms-flex: 0 50%;
+      flex: 0 50%;
+      border-radius: 15px;
+      background-color: #50aeef;
+      color: #fff;
+      line-height: 30px;
+      border-style: none;
+    }
+
+    .quant-select {
+      height: 30px;
+      text-align: right;
+      max-width: 150px;
+      border-style: none;
+      margin-right: 20px;
+      padding-right: 10px;
+      padding-left: 10px;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 50%;
+      -ms-flex: 0 50%;
+      flex: 0 50%;
+      border-radius: 15px;
+      background-color: #50aeef;
+      color: #fff;
+      line-height: 30px;
+    }
+
+    .page-main {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      max-width: none;
+      margin-top: auto;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+    .social-buttons {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 991px) {
+      .prod-fullprice {
+        padding-right: 0px;
+        padding-left: 5px;
+      }
+      .prod-price {
+        padding-right: 5px;
+        padding-left: 0px;
+      }
+      .prod-item {
+        width: 24%;
+        -webkit-flex-basis: 24%;
+        -ms-flex-preferred-size: 24%;
+        flex-basis: 24%;
+      }
+      .cosell-text {
+        margin-bottom: 5px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .prod-item {
+        width: 30%;
+        height: 350px;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-flex-basis: 40%;
+        -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+      }
+      .product-main {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+      }
+      .productimage {
+        width: 100%;
+        height: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        -o-object-fit: contain;
+        object-fit: contain;
+        -webkit-flex-basis: 186px;
+        -ms-flex-preferred-size: 186px;
+        flex-basis: 186px;
+      }
+      .main-product-title {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 auto;
+        -ms-flex: 0 auto;
+        flex: 0 auto;
+      }
+      .product-buy {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+      .cosell-button {
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+      .other-products-title {
+        font-size: 28px !important;
+      }
+      .buy-option-text {
+        padding-left: 20px;
+      }
+      .page-main {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+      }
+      .main-product-details{
+        margin: 40px 0px;
+      }
+    }
+
+    @media screen and (max-width: 479px) {
+      .prod-price {
+        height: 20px;
+        padding-left: 10px;
+      }
+      .prod-item {
+        -webkit-flex-basis: 49%;
+        -ms-flex-preferred-size: 49%;
+        flex-basis: 49%;
+        height:350px;
+      }
+      .productimage {
+        -webkit-flex-basis: 156px;
+        -ms-flex-preferred-size: 156px;
+        flex-basis: 156px;
+      }
+      .other-products-title {
+        font-size: 20px !important;
+      }
+    }
+  </style>
+
+  <div class="page-main">
+    <div class="product-main">
+      <div class="product-images-section">
+        <div class="product-images">
+          <div class="product-festured-image">
+            <img id="product-festured-image" src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="featured-image"></div>
+          <div id="main-product-images" class="main-product-images">
+            <div id="product-image-0" class="main-product-image hidden"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="main-product-image-small"></div>
+          </div>
+        </div>
+      </div>
+      <div class="main-product-details">
+        <h1 id="product-title" class="main-product-title"></h1>
+        <div id="product-brand" class="main-product-brand"></div>
+        <div id="product-description" class="main-product-description"><br></div>
+        <div id="product-tags" class="main-product-tags"></div>
+        <div class="social-buttons">
+          <div class="cosell-button" style="margin-left:5px; height:32px; line-height: 32px !important;" id="share-button" onClick="share()">
+            Share
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product-buy">
+      <div class="product-buy-options">
+        <div class="buy-options">
+          <div class="buy-option-text">Select Quantity -</div>
+          <input type="number" onchange="quantityChanged();" class="quant-select" name="Quantity" id="quantity" value=1 min="0">
+          </input>
+        </div>
+        <div id="variant-block" class="buy-options">
+          <div class="buy-option-text" id="variant-text">Select Variant -</div>
+          <select class="div-block-10" name="Variant" id="variant" onChange="variantChanged(this);">
+
+          </select>
+        </div>
+      </div>
+      <div class="product-buy-options">
+        <div id="buyButton" class="buy-button" onClick="addToCart();">Buy Now</div>
+      </div>
+      <div id="coselltab" class="product-buy-options">
+        <div>
+          <div class="newfeature"> New feature</div>
+        </div>
+        <div>
+          <div id="cosellButton" class="cosell-button" onClick="share()">COSELL</div>
+        </div>
+        <div>
+          <div class="cosell-text">Join the Coseller Network</div>
+        </div>
+      </div>
+    </div>
+    <div class="related-products-block">
+      <div class="related-products-title">
+        <h2 id="other-products-title" class="other-products-title">Other products from {brand}</h2>
+      </div>
+      <div class="related-products-list">
+        <div id="related-products-list" class="related-product"><a id="related-000" href="#" class="prod-item hidden"><img src="" alt="" class="productimage"><div class="price-block"><div class="prod-price">$123</div><div class="prod-fullprice">$200</div></div><div class="product-details"><h3 class="product-title">Heading</h3><div id="product-brand-title" class="product-brand">brand</div></div></a></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://shoptype-scripts.s3.amazonaws.com/triggerUserEvent.js"></script>
+
+  <script type="text/javascript">
+    var url = new URL(window.location);
+    var productId = url.searchParams.get("id")??"";
+    var shared = url.searchParams.get("share")??"";
+    var platformId = "cb843ac5-7c50-9f31-f239-69f3a6ea410a";
+    var domain = "https://veed.online/product?id={productId}%26share=true";
+    var backend = "https://backend.shoptype.com";
+    var appUrl = "https://app.shoptype.com";
+    var cartUrl = appUrl+"/cart";
+    var product;
+
+    setupProductPage(productId);
+
+    function sendViewEvent(vendorId){
+      if(sessionStorage['userId']){
+        console.info("userId", sessionStorage['userId'])
+        triggerUserEvent(productId, sessionStorage['userId'], vendorId, sessionStorage['userId'], 'product_view', function(){
+          console.info("View Send");
+        });
+      }else{
+        setTimeout(function(){sendViewEvent(vendorId)},500);
+      }
+    }
+
+    function setupProductPage(productId){
+      var currency = {"USD":"$", "INR":"₹","GBP":"£"};
+      var url = backend + "/products/{productId}";
+      url = url.replace('{productId}',productId);
+      fetch(url)
+      .then(response => response.json())
+      .then(productJson => {
+        product = productJson;
+        document.getElementById("product-festured-image").src = productJson.primaryImageSrc.imageSrc;
+        var pricePrefix = currency[productJson.currency]?" "+currency[productJson.currency]:" " + productJson.currency;
+        addImage(productJson.primaryImageSrc,0);
+        if(productJson.secondaryImageSrc){
+          for (var i = 0; i < productJson.secondaryImageSrc.length; i++) {
+            addImage(productJson.secondaryImageSrc[i],i+1);
+          };
+        }
+
+        document.getElementById("product-title").innerText = productJson.title;
+        document.getElementById("product-brand").innerText = "By " + productJson.vendor.name;
+        if(productJson.description){
+          document.getElementById("product-description").innerText = productJson.description;
+        }
+        if(productJson.tags){
+          document.getElementById("product-tags").innerText = "Tags: " + productJson.tags.join(", ");
+        }
+        document.getElementById("other-products-title").innerHTML= "Other products from " + productJson.vendor.name;
+        document.getElementById("product-brand-title").innerHTML= productJson.vendor.name;
+        sendViewEvent(productJson.vendor.id)
+        if(shared=="true"){
+          document.getElementById("coselltab").style.display="none";
+        }else{
+          var commission = (productJson.variants[0].discountedPrice * productJson.productCommission.percentage)/100;
+          document.getElementById("cosellButton").innerHTML = "COSELL and earn upto " + pricePrefix + Math.round(commission);
+        }
+
+        var metaList = document.getElementsByTagName('meta');
+        for (var i = 0; i < metaList.length; i++) {
+          setMetaData(metaList[i],productJson);
+        };
+
+        addVariants(pricePrefix, productJson.variants);
+        addOtherProducts(productJson.vendor.id);
+        //loadJsFile("https://assets.pinterest.com/js/pinit.js");
+        //addSocialButtons(productJson);
+      });
+    }
+
+    function addSocialButtons(productJson){
+        var pinLink = document.getElementById("pinterest-pin");
+        var pinHref = "https://www.pinterest.com/pin/create/button/?url={url}&media={image}&description={title}";
+        pinHref = pinHref.replace("{url}",domain.replace("{productId}",productJson.id)).replace("{image}",productJson.primaryImageSrc.imageSrc).replace("{title}",productJson.title);
+        pinLink.href = pinHref;
+
+        var waButton = document.getElementById("whatsApp-share");
+        var waHref = waButton.href;
+        waHref = waHref.replace("{title}",productJson.title.replaceAll("&","%26")).replace("{url}",domain.replace("{productId}",productJson.id));
+        waButton.href = waHref;
+    }
+
+
+  function addClass(element, className){
+    arr = element.className.split(" ");
+    if (arr.indexOf(className) == -1) {
+      element.className += " " + className;
+    }
+  }
+
+  function removeClass(element, className){
+    element.className = element.className.replace(className,"");
+  }
+
+    function setMetaData(meta,productJson){
+      switch(meta.getAttribute("name")?meta.getAttribute("name"):meta.getAttribute("property")) {
+        case "twitter:description":
+        case "og:description":
+        case "description":
+          meta.setAttribute("content", productJson.vendor.name + ": " + productJson.title)
+          break;
+        case "twitter:domain":
+        case "og:url":
+          meta.setAttribute("content", productJson.vendor.name + ": " + productJson.title)
+          break;
+        case "twitter:title":
+        case "og:title":
+        case "title":
+          meta.setAttribute("content", productJson.vendor.name + ": " + productJson.title)
+          break;
+        default:
+          // code block
+      }
+    }
+
+    String.prototype.replaceAll = function(target, replacement) {
+      return this.split(target).join(replacement);
+    };
+
+    function addOtherProducts(vendorId){
+      var currency = {"USD":"$", "INR":"₹","GBP":"£"};
+      var url = "https://backend.shoptype.com/platforms/{pId}/products?count=20&offset=0&vendorId={vId}";
+
+      url = url.replace('{pId}',platformId);
+      url = url.replace('{vId}',vendorId);
+      fetch(url)
+        .then(response => response.json())
+        .then(productsJson => {
+          var relatedProduct = document.getElementById("related-000");
+          var relatedProductsList = document.getElementById("related-products-list");
+          for (var i = 0; i < productsJson.products.length; i++) {
+            var clone = relatedProduct.cloneNode(true);
+            var pricePrefix = currency[productsJson.products[i].currency]?" "+currency[productsJson.products[i].currency]:" " + productsJson.products[i].currency;
+            clone.href = window.location.href.split("?")[0] + "?id="+productsJson.products[i].id;
+            clone.setAttribute("id",productsJson.products[i].id);
+            clone.children[0].src = productsJson.products[i].primaryImageSrc.imageSrc;
+            var variant = productsJson.products[i].variants[0]
+            clone.children[1].children[0].innerHTML = pricePrefix + variant.discountedPrice;
+            if(variant.discountedPrice<variant.price){
+              clone.children[1].children[1].innerHTML =pricePrefix + variant.price;
+            }else{
+              clone.children[1].children[1].style.display = 'none';
+            }
+            clone.children[2].children[0].innerHTML = productsJson.products[i].title;
+            removeClass(clone,"hidden");
+            relatedProductsList.appendChild(clone);
+          };
+          relatedProduct.remove();
+        });
+    }
+
+    function addVariants(pricePrefix, variants){
+      var variant = document.getElementById("variant");
+      for (var i = 0; i < variants.length; i++) {
+        var option = document.createElement("option");
+        var key = Object.keys(variants[i].variantNameValue);
+        document.getElementById("variant-text").innerHTML = "Select " + key[0];
+        option.text = variants[i].variantNameValue[key[0]] + pricePrefix + variants[i].discountedPrice;
+        option.setAttribute("value", variants[i].id);
+        if(variants[i].imageIds){
+          option.setAttribute("imageId", variants[i].imageIds[0]);
+        }
+        option.setAttribute("price", pricePrefix+ variants[i].discountedPrice);
+        option.setAttribute("quantity",variants[i].quantity);
+        if(variants.length==1){
+          document.getElementById("buyButton").innerHTML = "Buy for " + pricePrefix + variants[i].discountedPrice;
+          document.getElementById("variant-block").style.display='none';
+        }
+        variant.add(option);
+      };
+      variant.selectedIndex=0;
+      variantChanged(variant);
+    }
+
+    function addImage(image,count){
+      var otherImagesDiv = document.getElementById("product-image-0");
+      var imagesList = document.getElementById("main-product-images");
+      var productImage = otherImagesDiv.cloneNode(true);
+      var imageId = "product-img-" + count;
+      productImage.children[0].src = image.imageSrc;
+      productImage.children[0].setAttribute("id",image.id);
+      productImage.setAttribute("id",imageId);
+      productImage.setAttribute("onclick", "changeImage('"+image.id+"')");
+      removeClass(productImage,"hidden");
+      imagesList.appendChild(productImage);
+    }
+
+    function changeImage(imageId){
+      document.getElementById("product-festured-image").src = document.getElementById(imageId).src;
+    }
+
+    function quantityChanged(){
+      var quant = document.getElementById("quantity");
+      var max = parseInt(quant.getAttribute("max"));
+      var value = quant.value;
+
+      if(value>max){
+        quant.value = max;
+      }
+    }
+
+    function variantChanged(elem){
+      var selectedOption = elem.options[elem.selectedIndex]
+      var imageId = selectedOption.getAttribute('imageid');
+      var price = selectedOption.getAttribute('price');
+      var quantity = selectedOption.getAttribute('quantity');
+      if(imageId){
+        changeImage(imageId);
+      }
+
+      document.getElementById("quantity").setAttribute("max",quantity);
+      document.getElementById("buyButton").innerHTML = "Buy for" + price;
+      if(quantity<1){
+        document.getElementById("buyButton").innerHTML = "SOLD-OUT";
+      }
+    }
+
+    function addToCart(){
+      var variant =document.getElementById("variant");
+      var variantId = variant.options[variant.selectedIndex].value;
+      var quantity =document.getElementById("quantity").value;
+      if(quantity==0){
+        return;
+      }
+      var url = cartUrl + "?productid="+productId;
+      url = url + "&variantid="+variantId;
+      url = url + "&quantity="+quantity;
+      cartIframe.contentWindow.location.replace(url);
+      openCart();
+      return false;
+    }
+
+    function receiveMessage(event){
+      if(event.origin !== appUrl) return;
+      try{
+        var json = JSON.parse(event.data);
+        console.info(json);
+      }catch(err){
+        closeCart();
+        window.location.href = event.data;
+      }
+    }
+
+    function loadJsFile(filename){
+      var fileref=document.createElement('script');
+      fileref.setAttribute("type","text/javascript");
+      fileref.setAttribute("src", filename);
+      fileref.setAttribute("async", "");
+      fileref.setAttribute("defer", "");
+      document.getElementsByTagName("head")[0].appendChild(fileref);
+    }
+
+    window.addEventListener("message", receiveMessage, false);
+
+    function shareDetails(){
+      let img = document.getElementById('product-festured-image');
+
+      let canvas = document.createElement('canvas');
+      canvas.width = img.clientWidth;
+      canvas.height = img.clientHeight;
+
+      let context = canvas.getContext('2d');
+
+      context.drawImage(img, 0, 0);
+
+      canvas.toBlob(function(blob) {
+        var file = new File([blob],"test.png");
+        console.info(file);
+      }, 'image/png',0.92);
+    }
+
+    function share(){
+      var imageUrls= [];
+      console.info(product);
+      if(product.secondaryImageSrc){
+        for (var i = 0; i < product.secondaryImageSrc.length; i++) {
+          imageUrls.push(product.secondaryImageSrc[i].imageSrc);
+        };
+      }
+      console.info(imageUrls);
+      handleDeviceShare(product.title, product.description, product.primaryImageSrc.imageSrc, imageUrls);
+    }
+
+    if (!navigator.canShare){
+      document.getElementById('share-button').style.display="none";
+      document.getElementById('coselltab').style.display="none";
+    }
+
+    const handleDeviceShare = (
+      title,
+      description,
+      primaryImageUrl,
+      allImagesUrls = []
+    ) => {
+      if (allImagesUrls.length) {
+        // if multiple images are passed
+        const imgFetchTasks = [];
+        let count = 0;
+        allImagesUrls.forEach(imgUrl => {
+          count++;
+          imgFetchTasks.push(fetchImage(imgUrl, title, count));
+        });
+        Promise.all(imgFetchTasks).then(files => {
+          shareOnNavigator(title, description, files);
+          console.info(files);
+        });
+
+      } else {
+        // if only primary image is passed
+        if (primaryImageUrl) {
+          console.info("fetch image");
+          fetchImage(primaryImageUrl,title,0).then(file => {
+            shareOnNavigator(title, description, [file]);
+            console.info(file);
+          });
+        } else {
+          shareOnNavigator(title, description);
+        }
+      }
+    };
+
+    const fetchImage = (imgUrl, title, count) => {
+      // return promise for fetching of an image
+      console.info(title+'-'+count+'.');
+      return fetch(imgUrl+"?dsfds")
+        .then(response => response.blob())
+        .then(
+          img =>
+            new File([img], `${title}-${count}.${getExtension(img.type)}`, {
+              type: img.type,
+              lastModified: Date.now()
+            })
+        );
+    };
+
+    const getExtension = type => {
+      // get extension from mime type
+      return type.split('/')[1];
+    };
+
+    const shareOnNavigator = (title, description, files = null) => {
+      if (navigator.canShare) {
+        if (files) {
+          if (navigator.canShare({ files: files })) {
+            console.info("Sharing Image files");
+            navigator.share({
+              files: files,
+              title: title,
+              text: `${title} - ${description}`
+            });
+          } else {
+            console.info("Share not enabled on Browser");
+          }
+        } else {
+          console.info("Sharing");
+          navigator.share({
+            title: title,
+            text: `${description}`
+          });
+        }
+      } else {
+        // handle can't share
+      }
+    };
+  </script>

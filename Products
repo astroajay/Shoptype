@@ -1,16 +1,3 @@
-<div id="header">
-<img id="networklogo" src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png"/>
-</div><!-- end header -->
-
-<script>
-var networkoperatorId = ""
-var networkoperatoruserId = ""
-var networksiteUrl = ""
-
-</script>
-
-<!              ----------          Variables            -----------          >
-
 <style type="text/css">
     .image {
       overflow: hidden;
@@ -751,8 +738,8 @@ var networksiteUrl = ""
     var url = new URL(window.location);
     var productId = url.searchParams.get("id")??"";
     var shared = url.searchParams.get("share")??"";
-    var platformId = networkoperatorId;
-    var domain = networksiteUrl + "/product?id={productId}%26share=true";
+    var platformId = "cb843ac5-7c50-9f31-f239-69f3a6ea410a";
+    var domain = "https://veed.online/product?id={productId}%26share=true";
     var backend = "https://backend.shoptype.com";
     var appUrl = "https://app.shoptype.com";
     var cartUrl = appUrl+"/cart";

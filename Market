@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div id="header">
 <img id="networklogo" src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png"/>
 </div><!-- end header -->
@@ -13,6 +14,8 @@ var networksiteUrl = ""
 <!              ----------          Variables            -----------          >
 
 
+=======
+>>>>>>> parent of acac731... Adding image logo variable
 =======
 >>>>>>> parent of acac731... Adding image logo variable
 <link href="https://assets.website-files.com/5f15890090654589fbf5e726/css/awakemarket-project.webflow.3bebfddb3.css" rel="stylesheet" type="text/css">

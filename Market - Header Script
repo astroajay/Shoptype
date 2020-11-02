@@ -1,0 +1,259 @@
+<div id="temp-001"></div>
+  <script type="text/javascript">
+  document.getElementById("temp-001").parentNode.parentNode.style.margin = "0px";
+replaceMarket();
+  function replaceMarket(){
+    var temp = document.getElementsByClassName("menu-m__menu-item__2noyy")[0];
+    if(!temp){
+      setTimeout(replaceMarket,500);
+      return;
+    }
+    var newMarket = temp.cloneNode(true);
+    newMarket.children[0].setAttribute('target','');
+    newMarket.children[0].setAttribute('rel','');
+    var menu = temp.parentNode;
+    menu.insertBefore(newMarket,temp);
+    temp.remove();
+  }
+  </script>
+<div id="temp-001"></div>
+<script type="text/javascript">
+document.getElementById("temp-001").parentNode.parentNode.style.margin = "0px";
+replaceMarket();
+function replaceMarket(){
+  var temp = document.getElementsByClassName("menu-m__menu-item__2noyy")[0];
+  if(!temp){
+    setTimeout(replaceMarket,500);
+    return;
+  }
+  var newMarket = temp.cloneNode(true);
+  newMarket.children[0].setAttribute('target','');
+  newMarket.children[0].setAttribute('rel','');
+  var menu = temp.parentNode;
+  menu.insertBefore(newMarket,temp);
+  temp.remove();
+}
+</script>
+<style type="text/css">
+.login-mask {
+  position: fixed;
+  z-index: 9999999999;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.login-iframe {
+  width: 600px;
+  height: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+}
+</style>
+<div class="login-mask" id="loginMask" onclick="closeLogin()" style="display:none;">
+    <div class="login-iframe" id="loginIframeDiv">
+      <iframe id="loginIframe" src="" width="600" height="400"></iframe>
+    </div>
+</div>
+<script type="text/javascript">
+  const loginEvent = new Event('userLogin');
+  function showLogin(){
+    if(sessionStorage['userId']===undefined || sessionStorage['userId']===""){
+      loginMask.style.display="block"
+    }
+  }
+  function closeLogin(){
+    loginMask.style.display = 'none';
+  }
+  function receiveLoginMessage(event){
+    if(!event.origin.startsWith('https://app.shoptype.com')) return;
+    try{
+      var data = JSON.parse(event.data);
+      if(data.id){
+        userId = data.id;
+        closeLogin();
+        sessionStorage['userId'] = data.id
+        sessionStorage["userEmail"]=data.userProfile.email;
+        sessionStorage["userName"]=data.userProfile.name;
+        sessionStorage["userPhone"]=data.userProfile.phone;
+        document.dispatchEvent(loginEvent);
+      }
+    }catch(e){
+      return;
+    }
+  }
+  window.addEventListener("message", receiveLoginMessage, false);
+  function addClass(element, className){
+    arr = element.className.split(" ");
+    if (arr.indexOf(className) == -1) {
+      element.className += " " + className;
+    }
+  }
+  function removeClass(element, className){
+    element.className = element.className.replace(className,"");
+  }
+  var loginMask = document.getElementById('loginMask');
+  var loginIframe = document.getElementById('loginIframe');
+  var loginIframeDiv = document.getElementById('loginIframeDiv');
+  loginMask.parentNode.parentNode.style.margin='0px';
+  loginIframe.contentWindow.location.replace('https://app.shoptype.com/signin');
+  window.onresize = function() {
+    loginIframe.height = window.innerHeight-100;
+    loginIframe.width = window.innerWidth-100;
+    loginIframeDiv.style.height = window.innerHeight-100 + "px";
+    loginIframeDiv.style.width = window.innerWidth-100 + "px";
+  };
+  loginIframe.height = window.innerHeight-100;
+  loginIframe.width = window.innerWidth-100;
+  loginIframeDiv.style.height = window.innerHeight-100 + "px";
+  loginIframeDiv.style.width = window.innerWidth-100 + "px";
+  var headerTop = document.getElementsByClassName("header-two-m__cta-search-wrapper__3H6BH")[0];
+  var cartLarge = document.createElement("div");
+  cartLarge.classList.add("shoptype-cart");
+  cartLarge.style.width = "50px";
+  cartLarge.style.height = "50px";
+  cartLarge.setAttribute('onClick','openCart()')
+  headerTop.append(cartLarge);
+  var headerMenuMain = document.getElementsByClassName("header-two-m__layer-2__3pkbW")[0];
+  var headerMenu = document.getElementsByClassName("header-two-m__default-menu__RM7yu")[0];
+  var cartSmall = document.createElement("div");
+  cartSmall.classList.add("shoptype-cart");
+  cartSmall.style.width = "32px";
+  cartSmall.style.height = "32px";
+  cartSmall.style.visibility='hidden';
+  cartSmall.style.padding='8px 0px';
+  cartSmall.setAttribute('onClick','openCart()')
+  headerMenu.parentNode.insertBefore(cartSmall, headerMenu.nextSibling);
+  document.onscroll = function(){
+    if(window.pageYOffset>60){
+      cartLarge.style.visibility='hidden';
+      cartSmall.style.visibility='visible';
+    }else{
+      cartLarge.style.visibility='visible';
+      cartSmall.style.visibility='hidden';
+    }
+  }
+</script>
+<style type="text/css">
+.hidden{
+  display: none;
+}
+.cartCloseBtn {
+  position: fixed;
+  top: 20px;
+  right: 380px;
+  z-index: 9999;
+  width: 20px;
+  height: 30px;
+  margin-left: 0px;
+  padding-left: 3px;
+  border-width: 1px 0px 1px 1px;
+  border-style: solid;
+  border-color: #000;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+.shoptype-cart{
+  background-image: url(https://images.assettype.com/sheroes/2020-10/9f9283f3-8e95-4337-8eeb-95bcaa361588/shopping_cart.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 15px 0px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+  visibility: visible;
+}
+</style>
+<div id="iframeCloseBtn" class="cartCloseBtn hidden" onclick="closeCart()">X</div>
+<iframe class="hidden" id="cartIframe" src="https://app.shoptype.com/cart" width="350" height="600" style="background: #ffffff82;position: fixed;right: 0px;top: 0px;z-index: 9999;"></iframe>
+<script type="text/javascript">
+  var cartIframe = document.getElementById("cartIframe");
+  var cartCloseBtn = document.getElementById("iframeCloseBtn");
+  window.onresize = function() {
+    cartIframe.height = window.innerHeight;
+  };
+  cartIframe.height = window.innerHeight;
+  function openCart(){
+    removeClass(cartIframe,'hidden');
+    cartIframe.style.right= "0px";
+    removeClass(cartCloseBtn,'hidden');
+    cartCloseBtn.style.right="350px";
+  }
+  function closeCart(){
+    addClass(cartIframe,'hidden');
+    cartIframe.style.right= "-370px";
+    addClass(cartCloseBtn,'hidden');
+    cartCloseBtn.style.right="-20px";
+  }
+  function addClass(element, className){
+    arr = element.className.split(" ");
+    if (arr.indexOf(className) == -1) {
+      element.className += " " + className;
+    }
+  }
+  function removeClass(element, className){
+    element.className = element.className.replace(className,"");
+  }
+  function receiveLoginMessage(event){
+    if(!event.origin.startsWith('https://app.shoptype.com')) return;
+    try{
+      var data = JSON.parse(event.data);
+      if(data.totalQuantity){
+        cartLarge.innerText = data.totalQuantity;
+        cartSmall.innerText = data.totalQuantity;
+      }
+    }catch(e){
+      return;
+    }
+  }
+  window.addEventListener("message", receiveLoginMessage, false);
+  var headerTop = document.getElementsByClassName("header-two-m__cta-search-wrapper__3H6BH")[0];
+  var cartLarge = document.createElement("div");
+  cartLarge.classList.add("shoptype-cart");
+  cartLarge.style.width = "50px";
+  cartLarge.style.height = "50px";
+  cartLarge.setAttribute('onClick','openCart()')
+  headerTop.append(cartLarge);
+  var headerMenuMain = document.getElementsByClassName("header-two-m__layer-2__3pkbW")[0];
+  var headerMenu = document.getElementsByClassName("header-two-m__default-menu__RM7yu")[0];
+  var cartSmall = document.createElement("div");
+  cartSmall.classList.add("shoptype-cart");
+  cartSmall.style.width = "32px";
+  cartSmall.style.height = "32px";
+  cartSmall.style.visibility='hidden';
+  cartSmall.style.padding='8px 0px';
+  cartSmall.setAttribute('onClick','openCart()')
+  headerMenu.parentNode.insertBefore(cartSmall, headerMenu.nextSibling);
+  document.onscroll = function(){
+    if(window.pageYOffset>60){
+      cartLarge.style.display='none';
+      cartSmall.style.display='block';
+    }else{
+      cartLarge.style.display='block';
+      cartSmall.style.display='none';
+    }
+  }
+</script>

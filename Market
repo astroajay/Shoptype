@@ -1,3 +1,19 @@
+<!              ----------          Variables            -----------          >
+
+<div id="header">
+<img id="networklogo" src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png"/>
+</div><!-- end header -->
+
+<script>
+var networkoperatorId = ""
+var networkoperatoruserId = ""
+var networksiteUrl = ""
+
+</script>
+
+<!              ----------          Variables            -----------          >
+
+
 <link href="https://assets.website-files.com/5f15890090654589fbf5e726/css/awakemarket-project.webflow.3bebfddb3.css" rel="stylesheet" type="text/css">
 
   <div class="closeButton hidden" onclick="closeIframe()">X</div>

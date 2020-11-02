@@ -1,15 +1,145 @@
-<div id="header">
-<img id="networklogo" src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png"/>
-</div><!-- end header -->
+<style type="text/css">
+:root {
+  --brandcolor1: #f38f2b;
+  --brandcolor2: #f1d16d;
+}
 
-<script>
-var networkoperatorId = ""
-var networkoperatoruserId = ""
-var networksiteUrl = ""
+    .share-mask {
+      z-index: 9999999;
+      position: fixed;
+      left: 0%;
+      top: 0%;
+      right: 0%;
+      bottom: 0%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 
-</script>
+    .share-window {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 10px 20px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      background-color: #fff;
+    }
 
-<!              ----------          Variables            -----------          >
+    .share-link {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      min-width: 300px;
+      margin-bottom: 10px;
+    }
+
+    .share-text {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .share-url {
+      height: 34px;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 100%;
+      -ms-flex: 0 100%;
+      flex: 0 100%;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #777;
+    }
+
+    .share-copy {
+      height: 38px;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 73px;
+      -ms-flex: 0 73px;
+      flex: 0 73px;
+      line-height: 36px;
+      background-color: var(--brandcolor1);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .share-social {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+    }
+
+    .share-social-link {
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+    }
+    .share-social-image {
+      width: 26px;
+      height: 26px;
+    }
+
+    @media screen and (max-width: 479px) {
+      .bold-text {
+        font-size: 20px;
+        line-height: 26px;
+      }
+    }
+  </style>
+  <div id="social-share-mask" class="share-mask" style="display:none" onClick="document.getElementById('social-share-mask').style.display='none'">
+    <div class="share-window" onClick="event.stopPropagation();">
+      <h2><strong class="bold-text">Publish your Product</strong></h2>
+      <div class="share-text"><strong>Share Link</strong></div>
+      <div class="share-link">
+        <input type="text" id="social-share-url" class="share-url"/>
+        <div class="share-copy" onClick="copyUrl();">Copy</div>
+      </div>
+      <div class="share-text"><strong>Share on social platform</strong></div>
+      <div class="share-social">
+        <a id="social-share-pinterest" href="https://www.pinterest.com/pin/create/button/" data-pin-tall="32px" data-pin-round="true" class="share-social-link"></a>
+        <a id="social-share-whatsapp" href="whatsapp://send?text=Hey found this really interesting product you may be iterested in {title} {url}" class="share-social-link" style="margin-left: 10px;"><img src="https://images.assettype.com/veed/2020-10/27242b66-c77b-47a7-90ab-4ca085a8cf50/whatsapp_165_896225.png" loading="lazy" alt="" class="share-social-image"></a>
+        <a id="social-share-fb" href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u={url}&display=popup&ref=plugin&src=share_button" class="share-social-link" target="_blank"><img src="https://images.assettype.com/veed/2020-11/9b5458ac-b61d-4021-9e1c-ab3526b54b8c/facebook_logo.png" loading="lazy" alt="" class="share-social-image"></a>
+        <a id="social-share-twitter" href="#" class="share-social-link"><img src="https://images.assettype.com/veed/2020-11/68289979-7fb5-4e02-a90c-d5bee129f5c4/twitter_logo.png" loading="lazy" alt="" class="share-social-image"></a>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+  function showSocialShare(){
+    if(!sessionStorage['userId']){
+      showLogin();
+      showShareOptions=true;
+    }else{
+      document.getElementById('social-share-mask').style.display='flex';
+    }
+  }
+  function copyUrl() {
+    var copyText = document.getElementById("social-share-url");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+  }
+  </script>
+
 
 <style type="text/css">
     .image {
@@ -31,7 +161,7 @@ var networksiteUrl = ""
       -webkit-justify-content: center;
       -ms-flex-pack: center;
       justify-content: center;
-      background-color: #50aeef;
+      background-color: var(--brandcolor1);
       font-family: Lato, sans-serif;
       color: hsla(0, 0%, 100%, 0.6);
       line-height: 20px !important;
@@ -54,7 +184,7 @@ var networksiteUrl = ""
       -webkit-align-items: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: #50aeef;
+      background-color: var(--brandcolor1);
       font-family: Lato, sans-serif;
       color: #fff;
       line-height: 20px !important;
@@ -307,7 +437,7 @@ var networksiteUrl = ""
       width: 80px;
       min-width: 80px;
       cursor: pointer;
-      height: auto;
+      height: 80px;
     }
 
     .main-product-title {
@@ -448,7 +578,7 @@ var networksiteUrl = ""
       margin-right: 10px;
       margin-left: 10px;
       border-radius: 20px;
-      background-color: #50aeef;
+      background-color: var(--brandcolor1);
       color: #fff;
       font-size: 16px !important;
       line-height: 40px !important;
@@ -458,7 +588,7 @@ var networksiteUrl = ""
 
     .newfeature {
       margin-bottom: 5px;
-      color: #50aeef;
+      color: var(--brandcolor1);
       font-size: 12px !important;
       text-align: center;
     }
@@ -468,12 +598,14 @@ var networksiteUrl = ""
       margin-left: 20px;
       padding: 0px 20px;
       border-radius: 20px;
-      background-color: #f1d16d;
+      background-color: var(--brandcolor2);
       color: #fff;
-      font-size: 16px !important;
+      font-size: 14px !important;
       line-height: 40px !important;
       text-align: center;
       cursor: pointer;
+      height: 40px;
+      font-weight: 700;
     }
 
     .cosell-text {
@@ -516,7 +648,7 @@ var networksiteUrl = ""
       -ms-flex: 0 50%;
       flex: 0 50%;
       border-radius: 15px;
-      background-color: #50aeef;
+      background-color: var(--brandcolor1);
       color: #fff;
       line-height: 30px;
       border-style: none;
@@ -535,7 +667,7 @@ var networksiteUrl = ""
       -ms-flex: 0 50%;
       flex: 0 50%;
       border-radius: 15px;
-      background-color: #50aeef;
+      background-color: var(--brandcolor1);
       color: #fff;
       line-height: 30px;
     }
@@ -701,6 +833,8 @@ var networksiteUrl = ""
         <div id="product-description" class="main-product-description"><br></div>
         <div id="product-tags" class="main-product-tags"></div>
         <div class="social-buttons">
+          <a id="pinterest-pin" href="https://www.pinterest.com/pin/create/button/" data-pin-tall="32px" data-pin-round="true"></a>
+          <a id="whatsApp-share" href="whatsapp://send?text=Hey found this really interesting product you may be iterested in {title} {url}"><img src="https://images.assettype.com/veed/2020-10/27242b66-c77b-47a7-90ab-4ca085a8cf50/whatsapp_165_896225.png" style="margin:0px 0px 0px 10px;height:26px;width:26px"/></a>
           <div class="cosell-button" style="margin-left:5px; height:32px; line-height: 32px !important;" id="share-button" onClick="share()">
             Share
           </div>
@@ -729,7 +863,7 @@ var networksiteUrl = ""
           <div class="newfeature"> New feature</div>
         </div>
         <div>
-          <div id="cosellButton" class="cosell-button" onClick="share()">COSELL</div>
+          <div id="cosellButton" class="cosell-button" onClick="showSocialShare()">COSELL</div>
         </div>
         <div>
           <div class="cosell-text">Join the Coseller Network</div>
@@ -751,21 +885,34 @@ var networksiteUrl = ""
     var url = new URL(window.location);
     var productId = url.searchParams.get("id")??"";
     var shared = url.searchParams.get("share")??"";
-    var platformId = networkoperatorId;
-    var domain = networksiteUrl + "/product?id={productId}%26share=true";
+    var cosellerId = url.searchParams.get("cid")??"";
+    var platformId = "8914478f-23fb-26c4-ae22-df6c24e4d626";
+    var shareUrl = "https://corner.network/products?id={productId}%26share=true";
     var backend = "https://backend.shoptype.com";
+
     var appUrl = "https://app.shoptype.com";
     var cartUrl = appUrl+"/cart";
     var product;
 
     setupProductPage(productId);
 
+    document.addEventListener('userLogin', function (e) {userSignedIn();}, false);
+
+    function userSignedIn(){
+      if(product){addSocialButtons(product);}
+      console.info('User signin: ',showShareOptions);
+
+      if(showShareOptions){
+        console.info('showSocialShare');
+        showSocialShare();
+      }
+    }
+
     function sendViewEvent(vendorId){
       if(sessionStorage['userId']){
-        console.info("userId", sessionStorage['userId'])
-        triggerUserEvent(productId, sessionStorage['userId'], vendorId, sessionStorage['userId'], 'product_view', function(){
-          console.info("View Send");
-        });
+        triggerUserEvent(productId, sessionStorage['userId'], vendorId, platformId, cosellerId, 'product_view', function(){
+            console.info("View Send");
+          });
       }else{
         setTimeout(function(){sendViewEvent(vendorId)},500);
       }
@@ -787,7 +934,7 @@ var networksiteUrl = ""
             addImage(productJson.secondaryImageSrc[i],i+1);
           };
         }
-
+        document.getElementById("product-image-0").remove();
         document.getElementById("product-title").innerText = productJson.title;
         document.getElementById("product-brand").innerText = "By " + productJson.vendor.name;
         if(productJson.description){
@@ -813,34 +960,48 @@ var networksiteUrl = ""
 
         addVariants(pricePrefix, productJson.variants);
         addOtherProducts(productJson.vendor.id);
-        //loadJsFile("https://assets.pinterest.com/js/pinit.js");
-        //addSocialButtons(productJson);
+        addSocialButtons(productJson);
       });
     }
 
     function addSocialButtons(productJson){
-        var pinLink = document.getElementById("pinterest-pin");
+      var cosellUrl = shareUrl.replace("{productId}",productJson.id);
+      if(sessionStorage['userId']){
+        cosellUrl = cosellUrl + "%26cid=" + sessionStorage['userId'];
+      }
+      document.getElementById('social-share-url').value = cosellUrl;
+
+      var pinLink = document.getElementById("pinterest-pin");
+      if(pinLink){
+        var pinCosellLink = document.getElementById("social-share-pinterest");
         var pinHref = "https://www.pinterest.com/pin/create/button/?url={url}&media={image}&description={title}";
-        pinHref = pinHref.replace("{url}",domain.replace("{productId}",productJson.id)).replace("{image}",productJson.primaryImageSrc.imageSrc).replace("{title}",productJson.title);
+        pinHref = pinHref.replace("{url}",cosellUrl).replace("{image}",productJson.primaryImageSrc.imageSrc).replace("{title}",productJson.title);
         pinLink.href = pinHref;
+        pinCosellLink.href = pinHref;
+      }
+      var waButton = document.getElementById("whatsApp-share");
+      var waHref = waButton.href;
+      waButton.href = waHref.replace("{title}",productJson.title.replaceAll("&","%26")).replace("{url}",cosellUrl);
 
-        var waButton = document.getElementById("whatsApp-share");
-        var waHref = waButton.href;
-        waHref = waHref.replace("{title}",productJson.title.replaceAll("&","%26")).replace("{url}",domain.replace("{productId}",productJson.id));
-        waButton.href = waHref;
+      var waCosellButton = document.getElementById("social-share-whatsapp");
+      waHref = waCosellButton.href;
+      waCosellButton.href = waHref.replace("{title}",productJson.title.replaceAll("&","%26")).replace("{url}",cosellUrl);
+
+      var fbShareBtn = document.getElementById('social-share-fb');
+      fbShareBtn.href = fbShareBtn.href.replace('{url}', cosellUrl);
+      setTimeout(function(){loadJsFile("https://assets.pinterest.com/js/pinit.js");},2000);
     }
 
-
-  function addClass(element, className){
-    arr = element.className.split(" ");
-    if (arr.indexOf(className) == -1) {
-      element.className += " " + className;
+    function addClass(element, className){
+      arr = element.className.split(" ");
+      if (arr.indexOf(className) == -1) {
+        element.className += " " + className;
+      }
     }
-  }
 
-  function removeClass(element, className){
-    element.className = element.className.replace(className,"");
-  }
+    function removeClass(element, className){
+      element.className = element.className.replace(className,"");
+    }
 
     function setMetaData(meta,productJson){
       switch(meta.getAttribute("name")?meta.getAttribute("name"):meta.getAttribute("property")) {
@@ -1018,22 +1179,22 @@ var networksiteUrl = ""
         console.info(file);
       }, 'image/png',0.92);
     }
+    var showShareOptions = false;
 
     function share(){
-      var imageUrls= [];
-      console.info(product);
-      if(product.secondaryImageSrc){
-        for (var i = 0; i < product.secondaryImageSrc.length; i++) {
-          imageUrls.push(product.secondaryImageSrc[i].imageSrc);
-        };
-      }
-      console.info(imageUrls);
-      handleDeviceShare(product.title, product.description, product.primaryImageSrc.imageSrc, imageUrls);
+        var imageUrls= [];
+        console.info(product);
+        if(product.secondaryImageSrc){
+          for (var i = 0; i < product.secondaryImageSrc.length; i++) {
+            imageUrls.push(product.secondaryImageSrc[i].imageSrc);
+          };
+        }
+        console.info(imageUrls);
+        handleDeviceShare(product.title, product.description, product.primaryImageSrc.imageSrc, imageUrls);
     }
 
     if (!navigator.canShare){
       document.getElementById('share-button').style.display="none";
-      document.getElementById('coselltab').style.display="none";
     }
 
     const handleDeviceShare = (

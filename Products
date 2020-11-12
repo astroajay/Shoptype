@@ -1,3 +1,15 @@
+<!              ----------          Variables            -----------          >
+
+<script>
+var networkoperatorId = ""
+var networkoperatoruserId = ""
+var networksiteUrl = ""
+
+</script>
+
+<!              ----------          Variables            -----------          >
+
+
 <style type="text/css">
 :root {
   --brandcolor1: #f38f2b;

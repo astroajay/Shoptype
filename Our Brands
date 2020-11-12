@@ -2,6 +2,8 @@
 <img id="networklogo" src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png"/>
 </div><!-- end header -->
 
+<!              ----------          Variables            -----------          >
+
 <script>
 var networkoperatorId = ""
 var networkoperatoruserId = ""

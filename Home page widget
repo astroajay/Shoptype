@@ -1,0 +1,382 @@
+<style type="text/css">
+    .feature-header {
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      right: 0%;
+      bottom: auto;
+      height: 30px;
+    }
+
+    .featured {
+      position: relative;
+      max-width:1200px;
+    }
+
+    .featured-links {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      border-style: solid none;
+      border-width: 1px;
+      border-color: #333;
+    }
+
+    .feature-heading {
+      position: relative;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 700;
+    }
+
+    .feature-seprator {
+      padding-right: 5px;
+      padding-left: 5px;
+      color: #222;
+      font-size: 18px;
+      line-height: 30px;
+      text-decoration: none;
+    }
+
+    .feature-link {
+      color: #888;
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 400;
+    }
+
+    .feature-porducts {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding-top: 30px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      border-bottom: 1px solid #333;
+      margin-bottom: 10px;
+    }
+
+    .feature-products-title {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: auto;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 15%;
+      -ms-flex: 0 15%;
+      flex: 0 15%;
+      justify-content: center;
+    }
+
+    .feature-product {
+      display: block;
+      width: auto;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 16.666%;
+      -ms-flex: 0 16.666%;
+      flex: 0 16.666%;
+      cursor: pointer;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: #999;
+    }
+
+    .feature-productimage {
+      width: 100%;
+      height: 150px;
+      -o-object-fit: contain;
+      object-fit: contain;
+    }
+
+    .feature-producttitle {
+      height: 60px;
+      min-height: 60px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      overflow: hidden;
+      padding: 0px 5px;
+    }
+
+    .feature-productprice {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-bottom: 5px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .feature-currprice {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding-right: 5px;
+      padding-left: 5px;
+      font-weight: 700;
+    }
+
+    .product-link{
+      color: black;
+      text-decoration: none;
+    }
+
+    .feature-actualprice {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding-right: 5px;
+      padding-left: 5px;
+      color: #aaa;
+      text-decoration: line-through;
+    }
+
+    .feature-productslist {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      max-height: 503px;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 85%;
+      -ms-flex: 0 85%;
+      flex: 0 85%;
+      overflow: scroll;
+    }
+
+    .heading-4 {
+      position: static;
+      font-family: Merriweather, serif;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+    }
+    .closeButton {
+      position: fixed;
+      top: 20px;
+      right: 320px;
+      z-index: 9999;
+      width: 20px;
+      height: 30px;
+      margin-left: 0px;
+      padding-left: 3px;
+      border-width: 1px 0px 1px 1px;
+      border-style: solid;
+      border-color: #000;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      background-color: #fff;
+      font-family: Montserrat, sans-serif;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      transition: all 1s;
+    }
+    .hidden{
+      display: none;
+    }
+    @media screen and (max-width: 991px) {
+      .feature-porducts {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+      .feature-products-title {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+      .feature-productslist {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .featured-links {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+      }
+      .feature-porducts {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+      .feature-products-title {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+      .feature-product {
+        -webkit-flex-basis: 33%;
+        -ms-flex-preferred-size: 33%;
+        flex-basis: 33%;
+      }
+      .feature-productslist {
+        overflow: scroll;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+      }
+    }
+
+    @media screen and (max-width: 479px) {
+      .feature-heading {
+        font-size: 15px;
+        line-height: 18px;
+      }
+      .feature-seprator {
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .feature-product {
+        -webkit-flex-basis: 50%;
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+      }
+      .feature-productslist {
+        overflow: scroll;
+      }
+    }
+  </style>
+  <div id="iframeCloseBtn" class="closeButton hidden" onclick="closeIframe()">X</div>
+  <iframe class="hidden" id="shoptypeIframe" src="about:blank" width="320" height="600" style="background: #ffffff82;position: fixed;right: 0px;top: 0px;z-index: 9999;transition: all 1s;"></iframe>
+  <div class="featured">
+    <div class="feature-header">
+      <div class="featured-links">
+        <div class="feature-heading">Shop By:</div><a href="https://sheroes.network/market" class="feature-seprator">Market</a>
+        <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=bestsellers" class="feature-seprator">Bestsellers</a>
+        <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=jewellery" class="feature-seprator">Jewellery</a>
+        <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=saree" class="feature-seprator">Sarees</a>
+        <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=suits" class="feature-seprator">Suits</a></div>
+    </div>
+    <div class="feature-porducts">
+      <div class="feature-products-title">
+        <h1 class="heading-4">Hottest Selling on Sheroes Network</h1>
+      </div>
+      <div class="feature-productslist" id="productList001">
+        <a class="feature-product" id="productList001-0">
+            <img src="" loading="lazy" alt="" class="feature-productimage">
+            <h3 class="feature-producttitle">Product Title</h3>
+            <div class="feature-productprice">
+              <div class="feature-currprice"></div>
+              <div class="feature-actualprice"></div>
+            </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var platformId = "1e4cfbf9-bb51-1178-b34a-66370d426a43";
+    var tag = "";
+    var iframe = document.getElementById("shoptypeIframe");
+    var closeButton = document.getElementById("iframeCloseBtn");
+
+    setupFeaturedAds(platformId,tag,"productList001");
+    window.onresize = function() {
+      shoptypeIframe.height = window.innerHeight;
+    };
+    shoptypeIframe.height = window.innerHeight;
+
+    function setupFeaturedAds(platformId, tags, listId){
+      var currency = {"USD":"$", "INR":"₹","GBP":"£"};
+      var urlBase = "https://app.shoptype.com";
+      var url = "https://backend.shoptype.com/platforms/{pID}/products?count=18&offset=1&tags={tags}";
+      var productPage = "https://sheroes.network/product?id={productId}";
+      url = url.replace('{pID}',platformId);
+      url = url.replace('{tags}',tags);
+      fetch(url)
+      .then(response => response.json())
+      .then(jsonData => {
+        console.info(listId);
+        var list = document.getElementById(listId);
+        var products = jsonData['products'];
+        var productDiv = document.getElementById(listId+"-0");
+        for(var i= 0; i<products.length; i++){
+          var currentProduct = productDiv.cloneNode(true);
+          var pricePrefix = currency[products[i].currency]?currency[products[i].currency] + " ":products[i].currency  + " ";
+          currentProduct.setAttribute("href", productPage.replace("{productId}",products[i].id));
+          currentProduct.getElementsByClassName("feature-productimage")[0].src = products[i].primaryImageSrc.imageSrc;
+          currentProduct.getElementsByClassName("feature-producttitle")[0].innerText = products[i].title;
+          currentProduct.getElementsByClassName("feature-currprice")[0].innerText = pricePrefix + products[i].variants[0].discountedPrice;
+          if(products[i].variants[0].price && products[i].variants[0].price!=""){
+            currentProduct.getElementsByClassName("feature-actualprice")[0].innerText = pricePrefix + products[i].variants[0].price;
+          }else{
+
+          }
+          list.appendChild(currentProduct);
+
+        }
+        productDiv.remove();
+      });
+    }
+
+    function addClass(element, className){
+      arr = element.className.split(" ");
+      if (arr.indexOf(className) == -1) {
+        element.className += " " + className;
+      }
+    }
+
+    function removeClass(element, className){
+      element.className = element.className.replace(className,"");
+    }
+  </script>

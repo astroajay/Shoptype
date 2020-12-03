@@ -1,3 +1,16 @@
+<!              ----------          Variables            -----------          >
+
+<script>
+var networkoperatorId = ""
+var networkoperatoruserId = ""
+var networksiteUrl = ""
+
+</script>
+
+<!              ----------          Variables            -----------          >
+
+
+
 <style type="text/css">
     .feature-header {
       position: absolute;
@@ -281,11 +294,11 @@
   <div class="featured" id="featuredProducts" style="display:none">
     <div class="feature-header">
       <div class="featured-links">
-        <div class="feature-heading">Shop By:</div><a href="https://sheroes.network/market" class="feature-seprator">Market</a>
-        <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=fashion" class="feature-seprator">fashion</a>
-        <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=covid" class="feature-seprator">Covid</a>
-        <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=health" class="feature-seprator">Health</a>
-        <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=beauty" class="feature-seprator">Beauty</a></div>
+      <div class="feature-heading">Shop By:</div><a href="https://sheroes.network/market" class="feature-seprator">Market</a>
+      <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=bestsellers" class="feature-seprator">Bestsellers</a>
+      <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=jewellery" class="feature-seprator">Jewellery</a>
+      <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=saree" class="feature-seprator">Sarees</a>
+      <div class="feature-link">|</div><a href="https://sheroes.network/market?tags=suits" class="feature-seprator">Suits</a></div>
     </div>
     <div class="feature-porducts">
       <div class="feature-products-title">
@@ -304,11 +317,11 @@
     </div>
   </div>
   <script type="text/javascript">
-    var platformId = "1e4cfbf9-bb51-1178-b34a-66370d426a43";
+    var platformId = networkoperatorId;
     var tag = "";
     var iframe = document.getElementById("shoptypeIframe");
     var closeButton = document.getElementById("iframeCloseBtn");
-    var networkUrl = "https://sheroes.network";
+    var networkUrl = networksiteUrl;
     var array = document.location.pathname.split('/');
     var filtered = array.filter(function (el) {
       return el != "";
@@ -331,7 +344,7 @@
       var currency = {"USD":"$", "INR":"₹","GBP":"£"};
       var urlBase = "https://app.shoptype.com";
       var productUrl = networkUrl + "/product?id=";
-      var url = "https://backend.shoptype.com/platforms/{pID}/products?count=18&offset=1&tags={tags}";
+      var url = "https://backend.shoptype.com/platforms/{pID}/products?count=18&offset=0&tags={tags}";
       url = url.replace('{pID}',platformId);
       url = url.replace('{tags}',tags);
       fetch(url)
@@ -368,7 +381,7 @@
     }
     function openShoptype(productUrl){
       iframe.src= productUrl;
-      removeClass(iframe,'hidde        n');
+      removeClass(iframe,'hidden');
       iframe.style.right= "0px";
       removeClass(closeButton,'hidden');
       closeButton.style.right="320px";

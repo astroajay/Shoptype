@@ -70,16 +70,16 @@ var networksiteUrl = ""
     <script type="text/javascript">
   var allowedCat = [];
   var defaultCat = [];
-  var userId = "98d11135-657a-424c-971b-238f77736a57"
+  var userId = networkoperatoruserId;
   var url = new URL(window.location);
   var brandId = url.searchParams.get("brandId")??"";
   var defaultCollection = 'entrepreneurs'
   var currentCollection = url.searchParams.get("collection")??defaultCollection;
-  var platformId = "cb843ac5-7c50-9f31-f239-69f3a6ea410a";
+  var platformId = networkoperatorId;
   var currency = {"USD":"$", "INR":"₹","GBP":"£"};
   var stDomain = "https://app.shoptype.com";
   var apiDomain = "https://backend.shoptype.com";
-  var networkDomain = "https://veed.online";
+  var networkDomain = networksiteUrl;
 
   defer(setupShop);
   function defer(method) {
@@ -117,7 +117,7 @@ var networksiteUrl = ""
         var brandItems = $(".brand-link");
         $(".brand-link").addClass("hidden")
         for (var i = 0; i < brandItems.length && i < data.length; i++) {
-          brandItems[i].href = "https://veed.online/market/?vendorId="+data[i].id;
+          brandItems[i].href = networksiteUrl + "/market/?vendorId="+data[i].id;
           $(brandItems[i]).find(".brand-title").html(data[i].name);
           if(data[i].logo){
             $(brandItems[i]).find(".brand-image").attr("src", data[i].logo);

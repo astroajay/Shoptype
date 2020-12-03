@@ -152,6 +152,98 @@ var networksiteUrl = ""
   }
   </script>
 
+  <style type="text/css">
+  .hidden{
+    display: none;
+  }
+  .cartCloseBtn {
+    position: fixed;
+    top: 20px;
+    right: 380px;
+    z-index: 9999;
+    width: 20px;
+    height: 30px;
+    margin-left: 0px;
+    padding-left: 3px;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: #000;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+  }
+  .shoptype-cart{
+    background-image: url(https://images.assettype.com/sheroes/2020-10/9f9283f3-8e95-4337-8eeb-95bcaa361588/shopping_cart.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 15px 0px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    visibility: visible;
+  }
+  </style>
+  <div id="iframeCloseBtn" class="cartCloseBtn hidden" onclick="closeCart()">X</div>
+  <iframe class="hidden" id="cartIframe" src="https://app.shoptype.com/cart" width="350" height="600" style="background: #ffffff82;position: fixed;right: 0px;top: 0px;z-index: 9999;"></iframe>
+
+  <script type="text/javascript">
+    var cartIframe = document.getElementById("cartIframe");
+    var cartCloseBtn = document.getElementById("iframeCloseBtn");
+    window.onresize = function() {
+      cartIframe.height = window.innerHeight;
+    };
+    cartIframe.height = window.innerHeight;
+
+    function receiveLoginMessage(event){
+      if(!event.origin.startsWith('https://app.shoptype.com')) return;
+      try{
+        var data = JSON.parse(event.data);
+        if(data.id){
+          userId = data.id;
+          closeLogin();
+          sessionStorage['userId'] = data.id
+          sessionStorage["userEmail"]=data.userProfile.email;
+          sessionStorage["userName"]=data.userProfile.name;
+          sessionStorage["userPhone"]=data.userProfile.phone;
+          document.dispatchEvent(loginEvent);
+        }
+        else
+          if(data.totalQuantity){
+          cartLarge.innerText = data.totalQuantity;
+          cartSmall.innerText = data.totalQuantity;
+        }
+
+
+      }catch(e){
+        return;
+      }
+    }
+
+
+    function openCart(){
+      removeClass(cartIframe,'hidden');
+      cartIframe.style.right= "0px";
+      removeClass(cartCloseBtn,'hidden');
+      cartCloseBtn.style.right="350px";
+    }
+
+    function closeCart(){
+      addClass(cartIframe,'hidden');
+      cartIframe.style.right= "-370px";
+      addClass(cartCloseBtn,'hidden');
+      cartCloseBtn.style.right="-20px";
+    }
+
+    window.addEventListener("message", receiveLoginMessage, false);
+
+  </script>
 
 <style type="text/css">
     .image {
@@ -897,8 +989,9 @@ var networksiteUrl = ""
     var url = new URL(window.location);
     var productId = url.searchParams.get("id")??"";
     var shared = url.searchParams.get("share")??"";
-    var platformId = "cb843ac5-7c50-9f31-f239-69f3a6ea410a";
-    var domain = "https://veed.online/product?id={productId}%26share=true";
+    var cosellerId = url.searchParams.get("cid")??"";
+    var platformId = "8914478f-23fb-26c4-ae22-df6c24e4d626";
+    var shareUrl = "https://corner.network/products?id={productId}%26share=true";
     var backend = "https://backend.shoptype.com";
 
     var appUrl = "https://app.shoptype.com";

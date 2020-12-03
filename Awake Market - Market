@@ -1,21 +1,4 @@
-<!              ----------          Variables            -----------          >
-
-<div id="header">
-<img id="networklogo" src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png"/>
-</div><!-- end header -->
-
-<!              ----------          Variables            -----------          >
-
-<script>
-var networkoperatorId = ""
-var networkoperatoruserId = ""
-var networksiteUrl = ""
-
-</script>
-
-<!              ----------          Variables            -----------          >
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="https://assets.website-files.com/5f15890090654589fbf5e726/css/awakemarket-project.webflow.3bebfddb3.css" rel="stylesheet" type="text/css">
 
   <div class="closeButton hidden" onclick="closeIframe()">X</div>
@@ -72,7 +55,7 @@ var networksiteUrl = ""
   var currency = {"USD":"$", "INR":"₹","GBP":"£"};
   var stDomain = "https://app.shoptype.com";
   var apiDomain = "https://backend.shoptype.com";
-  var networkDomain = "https://veed.online";
+  var networkDomain = "https://za.awake.market";
   var top10Products = "CBD";
   defer(setupShop);
   function defer(method) {
@@ -109,35 +92,7 @@ var networksiteUrl = ""
         collectionName=data['vendors'][0]['name'].toLowerCase().replace(/ /g,'-')
       });
     }
-    var collectionUrl= networkDomain+"/api/v1/collections/{collection}".replace('{collection}',collectionName);
-    $.ajax({type:'GET',
-    url:collectionUrl,
-    dataType:'json',
-    success:function( data ) {
-          if (allowedCat.length==0 && data.summary && data.summary!=""){
-            allowedCat = data['summary'].split(",").map(function(item) {
-              return item.trim();
-            });
-          }
-          if(allowedCat.length==0){allowedCat = defaultCat;}
-          if(collectionName!=defaultCollection && data.items.length == 0){
-            loadStories(defaultCollection);
-            return;
-          }
-          var storieItems = $('.story-link');
-          for (var i = 0; i < 6 && i < data.items.length; i++) {
-            if(data.items[i].type== "story"){
-              addStoryData($(storieItems[i]), data.items[i]);
-            }
-          };
-          //$("._4stories-block").removeClass('hidden');
-          setupProducts();
-      },
-        error:function(){
-          console.info("brands collection not found");
-          setupProducts();
-        }
-    });
+    setupProducts();
   }
 
   function loadBrands(){
@@ -190,7 +145,7 @@ var networksiteUrl = ""
       product.slug = "/product/" + product.id + "?uid=" + uid + "&pid=" + platformId;
     }
     //$(prodBlock).attr("onclick", "return openShoptype('" + stDomain + product.slug + "')");
-    $(prodBlock).attr("href", networkDomain + "/product?id=" + product.id);
+    $(prodBlock).attr("href", networkDomain + "/products?id=" + product.id);
     $(prodBlock).find(".promo-product-name").html(product.title);
     $(prodBlock).find(".promo-prod-image").attr("src", product.primaryImageSrc.imageSrc);
   }
@@ -270,7 +225,7 @@ var networksiteUrl = ""
       product.slug = "/product/" + product.id + "?uid=" + uid + "&pid=" + platformId;
     }
     //newItem.attr("onclick", "return openShoptype('" + stDomain + product.slug + "')");
-    newItem.attr("href", networkDomain + "/product?id=" + product.id);
+    newItem.attr("href", networkDomain + "/products?id=" + product.id);
     newItem.find(".ad-productname").html(product.title);
     newItem.find(".ad-productsliderimage").attr("src", product.primaryImageSrc.imageSrc);
     newItem.find(".ad-productsliderimage").attr("srcset", "");
@@ -286,34 +241,12 @@ var networksiteUrl = ""
 </script>
       </div>
     </div>
-    <div class="nav-block nav-block-stories hidden">
-      <div class="nav-col-large product-promo-large">
-        <div class="nav-row-1col product-promo-small"><a href="#" class="nav-links margin-bottom story-link w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a></div>
-        <div class="nav-row-2col product-promo-small">
-          <div class="nav-small w-clearfix"><a href="#" class="prod-item-promo-top product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage"><div class="product-details"><h3 class="ad-productname">Veed Online</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
-          <div class="nav-small w-clearfix"><a href="#" class="prod-item-promo-top product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage"><div class="product-details"><h3 class="ad-productname">Veed Online</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
-        </div>
-      </div>
-      <div class="nav-col-large product-promo-large"><a href="#" class="nav-links story-link w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-3 nav-image"><h2 class="story-headline">Health & Wellbeing</h2></a></div>
-      <div class="nav-col-small">
-        <div class="nav-small nav-small-right product-promo-small w-clearfix"><a href="#" class="prod-item-promo-side product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage"><div class="product-details"><h3 class="ad-productname">Veed Online</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
-        <div class="nav-small nav-small-right product-promo-small w-clearfix"><a href="#" class="prod-item-promo-side product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage"><div class="product-details"><h3 class="ad-productname">Veed Online</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
-      </div>
-    </div>
+
     <div class="_4stories-block hidden"><a href="#" class="story-link collection-stories remove-margin-left w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a><a href="#" class="story-link collection-stories w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a><a href="#" class="story-link collection-stories w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a><a href="#" class="story-link collection-stories remove-margin-right w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a></div>
     <div class="all-products-block hidden">
-      <div class="products-slider">
-        <h3 class="heading-2"><span class="text-span">Veed's Picks</span></h3>
-        <div class="promo-products">
-          <div class="promo-products-large w-clearfix"><a href="#" class="prod-item-promo-l product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png"  alt="" class="ad-productsliderimage"><div class="product-details"><h3 class="ad-productname">Heading</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
-          <div class="promo-products-small remove-margin-left w-clearfix"><a href="#" class="prod-item-promo-s product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage image-small"><div class="product-details"><h3 class="ad-productname">Heading</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a><a href="#" class="prod-item-promo-s product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage image-small"><div class="product-details"><h3 class="ad-productname">Heading</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
-          <div class="promo-products-small remove-margin-left w-clearfix"><a href="#" class="prod-item-promo-s product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage image-small"><div class="product-details"><h3 class="ad-productname">Heading</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a><a href="#" class="prod-item-promo-s product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage image-small"><div class="product-details"><h3 class="ad-productname">Heading</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
-          <div class="promo-products-small w-clearfix"><a href="#" class="prod-item-promo-l product w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png"  alt="" class="ad-productsliderimage"><div class="product-details"><h3 class="ad-productname">Heading</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
-        </div>
-      </div>
       <div class="products-list">
         <div class="products-block1 w-clearfix"><a href="#" class="prod-item hidden w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage"><div class="product-details"><h3 class="ad-productname">Heading</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
       </div>
     </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  

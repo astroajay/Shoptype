@@ -1,5 +1,75 @@
+<style type="text/css">
+.div-block-10 {
+  width: 300px;
+  height: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+}
+.image-9 {
+  width: 100px;
+  height: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.div-block-11 {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+  text-align: center;
+}
+.heading-3 {
+  color: #000;
+  font-size: 28px;
+  text-align: center;
+}
+.div-block-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 60px;
+  padding-right: 20px;
+  padding-left: 20px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.div-block-13 {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.div-block-14 {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #50aeee;
+  color: #000;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+</style>
+
 <div id="temp-001"></div>
-  <script type="text/javascript">
+<script type="text/javascript">
   document.getElementById("temp-001").parentNode.parentNode.style.margin = "0px";
 replaceMarket();
   function replaceMarket(){
@@ -16,7 +86,7 @@ replaceMarket();
     temp.remove();
   }
   </script>
-<div id="temp-001"></div>
+
 <script type="text/javascript">
 document.getElementById("temp-001").parentNode.parentNode.style.margin = "0px";
 replaceMarket();
@@ -34,6 +104,7 @@ function replaceMarket(){
   temp.remove();
 }
 </script>
+
 <style type="text/css">
 .login-mask {
   position: fixed;
@@ -58,6 +129,7 @@ function replaceMarket(){
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
 }
+
 .login-iframe {
   width: 600px;
   height: 400px;
@@ -65,21 +137,26 @@ function replaceMarket(){
   background-color: #fff;
 }
 </style>
+
 <div class="login-mask" id="loginMask" onclick="closeLogin()" style="display:none;">
     <div class="login-iframe" id="loginIframeDiv">
-      <iframe id="loginIframe" src="" width="600" height="400"></iframe>
+      <iframe id="loginIframe" src="https://app.shoptype.com/signin" width="600" height="400"></iframe>
     </div>
 </div>
+
 <script type="text/javascript">
   const loginEvent = new Event('userLogin');
+
   function showLogin(){
     if(sessionStorage['userId']===undefined || sessionStorage['userId']===""){
-      loginMask.style.display="block"
+      document.getElementById("loginMask").style.display="block"
     }
   }
+
   function closeLogin(){
-    loginMask.style.display = 'none';
+    document.getElementById("loginMask").style.display = 'none';
   }
+
   function receiveLoginMessage(event){
     if(!event.origin.startsWith('https://app.shoptype.com')) return;
     try{
@@ -98,57 +175,34 @@ function replaceMarket(){
     }
   }
   window.addEventListener("message", receiveLoginMessage, false);
+
   function addClass(element, className){
     arr = element.className.split(" ");
     if (arr.indexOf(className) == -1) {
       element.className += " " + className;
     }
   }
+
   function removeClass(element, className){
     element.className = element.className.replace(className,"");
   }
-  var loginMask = document.getElementById('loginMask');
-  var loginIframe = document.getElementById('loginIframe');
-  var loginIframeDiv = document.getElementById('loginIframeDiv');
-  loginMask.parentNode.parentNode.style.margin='0px';
-  loginIframe.contentWindow.location.replace('https://app.shoptype.com/signin');
+
+  document.getElementById("loginMask").parentNode.parentNode.style.margin='0px';
+  document.getElementById('loginIframe').contentWindow.location.replace('https://app.shoptype.com/signin');
+
   window.onresize = function() {
-    loginIframe.height = window.innerHeight-100;
-    loginIframe.width = window.innerWidth-100;
-    loginIframeDiv.style.height = window.innerHeight-100 + "px";
-    loginIframeDiv.style.width = window.innerWidth-100 + "px";
+    document.getElementById('loginIframe').height = window.innerHeight-100;
+    document.getElementById('loginIframe').width = window.innerWidth-100;
+    document.getElementById('loginIframeDiv').style.height = window.innerHeight-100 + "px";
+    document.getElementById('loginIframeDiv').style.width = window.innerWidth-100 + "px";
   };
-  loginIframe.height = window.innerHeight-100;
-  loginIframe.width = window.innerWidth-100;
-  loginIframeDiv.style.height = window.innerHeight-100 + "px";
-  loginIframeDiv.style.width = window.innerWidth-100 + "px";
-  var headerTop = document.getElementsByClassName("header-two-m__cta-search-wrapper__3H6BH")[0];
-  var cartLarge = document.createElement("div");
-  cartLarge.classList.add("shoptype-cart");
-  cartLarge.style.width = "50px";
-  cartLarge.style.height = "50px";
-  cartLarge.setAttribute('onClick','openCart()')
-  headerTop.append(cartLarge);
-  var headerMenuMain = document.getElementsByClassName("header-two-m__layer-2__3pkbW")[0];
-  var headerMenu = document.getElementsByClassName("header-two-m__default-menu__RM7yu")[0];
-  var cartSmall = document.createElement("div");
-  cartSmall.classList.add("shoptype-cart");
-  cartSmall.style.width = "32px";
-  cartSmall.style.height = "32px";
-  cartSmall.style.visibility='hidden';
-  cartSmall.style.padding='8px 0px';
-  cartSmall.setAttribute('onClick','openCart()')
-  headerMenu.parentNode.insertBefore(cartSmall, headerMenu.nextSibling);
-  document.onscroll = function(){
-    if(window.pageYOffset>60){
-      cartLarge.style.visibility='hidden';
-      cartSmall.style.visibility='visible';
-    }else{
-      cartLarge.style.visibility='visible';
-      cartSmall.style.visibility='hidden';
-    }
-  }
+  document.getElementById('loginIframe').height = window.innerHeight-100;
+  document.getElementById('loginIframe').width = window.innerWidth-100;
+  document.getElementById('loginIframeDiv').style.height = window.innerHeight-100 + "px";
+  document.getElementById('loginIframeDiv').style.width = window.innerWidth-100 + "px";
 </script>
+
+
 <style type="text/css">
 .hidden{
   display: none;
@@ -189,6 +243,7 @@ function replaceMarket(){
 </style>
 <div id="iframeCloseBtn" class="cartCloseBtn hidden" onclick="closeCart()">X</div>
 <iframe class="hidden" id="cartIframe" src="https://app.shoptype.com/cart" width="350" height="600" style="background: #ffffff82;position: fixed;right: 0px;top: 0px;z-index: 9999;"></iframe>
+
 <script type="text/javascript">
   var cartIframe = document.getElementById("cartIframe");
   var cartCloseBtn = document.getElementById("iframeCloseBtn");
@@ -196,27 +251,32 @@ function replaceMarket(){
     cartIframe.height = window.innerHeight;
   };
   cartIframe.height = window.innerHeight;
+
   function openCart(){
     removeClass(cartIframe,'hidden');
     cartIframe.style.right= "0px";
     removeClass(cartCloseBtn,'hidden');
     cartCloseBtn.style.right="350px";
   }
+
   function closeCart(){
     addClass(cartIframe,'hidden');
     cartIframe.style.right= "-370px";
     addClass(cartCloseBtn,'hidden');
     cartCloseBtn.style.right="-20px";
   }
+
   function addClass(element, className){
     arr = element.className.split(" ");
     if (arr.indexOf(className) == -1) {
       element.className += " " + className;
     }
   }
+
   function removeClass(element, className){
     element.className = element.className.replace(className,"");
   }
+
   function receiveLoginMessage(event){
     if(!event.origin.startsWith('https://app.shoptype.com')) return;
     try{
@@ -230,6 +290,7 @@ function replaceMarket(){
     }
   }
   window.addEventListener("message", receiveLoginMessage, false);
+
   var headerTop = document.getElementsByClassName("header-two-m__cta-search-wrapper__3H6BH")[0];
   var cartLarge = document.createElement("div");
   cartLarge.classList.add("shoptype-cart");
@@ -237,6 +298,7 @@ function replaceMarket(){
   cartLarge.style.height = "50px";
   cartLarge.setAttribute('onClick','openCart()')
   headerTop.append(cartLarge);
+
   var headerMenuMain = document.getElementsByClassName("header-two-m__layer-2__3pkbW")[0];
   var headerMenu = document.getElementsByClassName("header-two-m__default-menu__RM7yu")[0];
   var cartSmall = document.createElement("div");
@@ -247,6 +309,7 @@ function replaceMarket(){
   cartSmall.style.padding='8px 0px';
   cartSmall.setAttribute('onClick','openCart()')
   headerMenu.parentNode.insertBefore(cartSmall, headerMenu.nextSibling);
+
   document.onscroll = function(){
     if(window.pageYOffset>60){
       cartLarge.style.display='none';

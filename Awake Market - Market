@@ -1,0 +1,252 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://assets.website-files.com/5f15890090654589fbf5e726/css/awakemarket-project.webflow.3bebfddb3.css" rel="stylesheet" type="text/css">
+
+  <div class="closeButton hidden" onclick="closeIframe()">X</div>
+  <iframe class="hidden" id="shoptypeIframe" src="about:blank" width="380" height="600" style="background: #ffffff82;position: fixed;right: 0px;top: 0px;z-index: 9999;"></iframe>
+
+  <div class="promo-main-block">
+    <div class="brands-block hidden">
+      <div class="nav-header">
+        <h2 class="heading-3">Top Brands</h2>
+        <a href="our-brands" class="load-more-link w-inline-block">
+          <div class="load-more">See All ></div>
+        </a>
+      </div>
+      <div class="promo-block w-clearfix"><a href="#" class="promo-brand hidden w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="promo-brand-image"><h3 class="promo-brand-h3">Heading</h3></a><a href="#" class="promo-brand hidden w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="promo-brand-image"><h3 class="promo-brand-h3">Heading</h3></a><a href="#" class="promo-brand hidden w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="promo-brand-image"><h3 class="promo-brand-h3">Heading</h3></a><a href="#" class="promo-brand hidden w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="promo-brand-image"><h3 class="promo-brand-h3">Heading</h3></a></div>
+      <div class="html-embed-3 w-embed w-iframe w-script">
+        <style>
+.closeButton {
+  position: fixed;
+  top: 20px;
+  right: 380px;
+  z-index: 9999;
+  width: 20px;
+  height: 30px;
+  margin-left: 0px;
+  padding-left: 3px;
+  border-width: 1px 0px 1px 1px;
+  border-style: solid;
+  border-color: #000;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+.hidden{
+  display: none;
+}
+</style>
+        <script type="text/javascript">
+  var allowedCat = [];
+  var defaultCat = [];
+  var url = new URL(window.location);
+  var vendorId = url.searchParams.get("vendorId")??"";
+  var tags = url.searchParams.get("tags")??"";
+  var defaultCollection = 'health'
+  var currentCollection = url.searchParams.get("collection")??defaultCollection;
+  var category = url.searchParams.get("category")??"";
+  var platformId = "cb843ac5-7c50-9f31-f239-69f3a6ea410a";
+  var uid = "98d11135-657a-424c-971b-238f77736a57";
+  var currency = {"USD":"$", "INR":"₹","GBP":"£"};
+  var stDomain = "https://app.shoptype.com";
+  var apiDomain = "https://backend.shoptype.com";
+  var networkDomain = "https://za.awake.market";
+  var top10Products = "CBD";
+  defer(setupShop);
+  function defer(method) {
+    if (window.jQuery) {
+        method();
+    } else {
+        setTimeout(function() { defer(method) }, 100);
+    }
+  }
+
+  function setupShop(){
+    $(document).ready(function() {
+      $('.static-container').removeClass('static-container');
+      $(window).resize(function() {
+        $("#shoptypeIframe").attr("height", window.innerHeight);
+      });
+      $("#shoptypeIframe").attr("height", window.innerHeight);
+      loadStories(currentCollection);
+      loadBrands();
+    });
+  }
+
+  function loadStories(collectionName){
+    $.ajaxSetup({
+       statusCode : {
+         404 : function (jqxhr, textStatus, errorThrown) {
+                 console.info(textStatus, errorThrown);
+                 return true;
+               }
+         }
+     });
+    if(vendorId){
+      $.get(apiDomain + '/vendors?vendorId='+vendorId,function(data){
+        collectionName=data['vendors'][0]['name'].toLowerCase().replace(/ /g,'-')
+      });
+    }
+    setupProducts();
+  }
+
+  function loadBrands(){
+    if(vendorId){
+      $(".promo-brand").hide();
+    }else{
+        $.get(apiDomain + "/platforms/{platformId}/vendors".replace("{platformId}",platformId),function( data ) {
+          var brandItems = $(".promo-brand");
+          for (var i = 0; i < brandItems.length && i < data.length; i++) {
+            brandItems[i].href = "?vendorId="+data[i].id;
+            $(brandItems[i]).find(".promo-brand-h3").html(data[i].name);
+            if(data[i].logo){
+              $(brandItems[i]).find(".promo-brand-image").attr("src", data[i].logo);
+              $(brandItems[i]).find(".promo-brand-h3").css("display", "none");
+            }
+            $(brandItems[i]).removeClass("hidden");
+          }
+          $('.brands-block').removeClass('hidden');
+      });
+    }
+  }
+
+  function addCollectionData(collectionElement, collection){
+    $(collectionElement).attr("href", window.url.origin + window.url.pathname + "?collection=" + collection.slug);
+    $(collectionElement).find(".nav-heading").html(collection.name);
+    if(collection.metadata['cover-image']){
+      $(collectionElement).find(".nav-image").attr("src", collection.metadata['cover-image']['cover-image-url']);
+      $(collectionElement).find(".nav-image").attr("srcset","");
+    }
+  }
+  function addStoryData(storyElement,story){
+    storyElement.attr("href", story.story.slug);
+    storyElement.find(".story-headline").html(story.story.headline);
+    storyElement.find(".nav-image").attr("src", 'https://gumlet.assettype.com/'+story.story['hero-image-s3-key']);
+    storyElement.find(".nav-image").attr("srcset", '');
+  }
+  function updateProduct(prodBlock, product){
+    var pricePrefix = currency[product.currency]?currency[product.currency]:product.currency;
+    $(prodBlock).find(".prod-price").html(pricePrefix + product.variants[0].discountedPrice);
+    if(product.variants[0].price){
+      var actualPrice = parseInt(product.variants[0].price);
+      var discount = (actualPrice - product.variants[0].discountedPrice)/actualPrice
+      $(prodBlock).find(".prod-fullprice").html(pricePrefix + actualPrice);
+      //$(prodBlock).find(".discountprice").html(Math.round(discount*100) + '% off');
+    }else{
+      $(prodBlock).find(".prod-fullprice").hide();
+      //$(prodBlock).find(".discountprice").hide();
+    }
+    if(!product.slug){
+      product.slug = "/product/" + product.id + "?uid=" + uid + "&pid=" + platformId;
+    }
+    //$(prodBlock).attr("onclick", "return openShoptype('" + stDomain + product.slug + "')");
+    $(prodBlock).attr("href", networkDomain + "/products?id=" + product.id);
+    $(prodBlock).find(".promo-product-name").html(product.title);
+    $(prodBlock).find(".promo-prod-image").attr("src", product.primaryImageSrc.imageSrc);
+  }
+
+  var productsOffset = 0;
+  var productsCount = 15;
+  function setupProducts(){
+    var productsUrl = apiDomain + "/platforms/{platformId}/products?count=10&offset=0".replace("{platformId}",platformId);
+    if(vendorId!=""){
+      productsUrl = productsUrl + "&vendorId={vendorId}";
+    }else if(tags!=""){
+      productsUrl = productsUrl + "&tags=" + tags;
+      productsOffset =10;
+    } else{
+      productsUrl = productsUrl + "&tags=" + top10Products;
+    }
+
+    $.get(productsUrl.replace('{vendorId}',vendorId),function( data ) {
+        if(data.products){data = data.products;}
+        var cloneItem = $(".ad-item");
+        var productItems = $(".product");
+        for (var i = 0; i < data.length; i++) {
+          var newItem = cloneItem.clone();
+          populateProduct(newItem, data[i])
+          populateProduct($(productItems[i]), data[i]);
+          if(i<4){
+            newItem.appendTo(".slide1 > .products-block");
+          }else{
+            newItem.appendTo(".slide2 > .products-block");
+          }
+        }
+        cloneItem.remove();
+        $(".nav-block-stories").removeClass('hidden');
+    });
+    productCloneItem = $(".prod-item");
+    getProducts();
+  }
+  var productCloneItem;
+  var loadingProducts = false;
+  function getProducts(){
+    loadingProducts = true;
+    var productsUrl = apiDomain + "/platforms/{platformId}/products?count={productsCount}&offset={productsOffset}".replace("{platformId}",platformId);
+    if(vendorId!=""){
+      productsUrl = productsUrl + "&vendorId={vendorId}"
+    }else if(tags!=""){
+      productsUrl = productsUrl + "&tags=" + tags;
+    }
+    productsUrl = productsUrl.replace('{vendorId}',vendorId);
+    productsUrl = productsUrl.replace('{productsOffset}',productsOffset);
+    productsUrl = productsUrl.replace('{productsCount}',productsCount);
+    $.get(productsUrl,function( data ) {
+      if(data.products){data = data.products;}
+      for (var i = 0; i < data.length; i++) {
+        var newItem = productCloneItem.clone();
+        populateProduct(newItem, data[i])
+        newItem.appendTo(".products-block1");
+        newItem.removeClass('hidden');
+      }
+      $(".all-products-block").removeClass('hidden');
+      productsOffset += productsCount;
+      loadingProducts = false;
+    });
+  }
+  function populateProduct(newItem, product){
+    var pricePrefix = currency[product.currency]?currency[product.currency]:product.currency;
+    newItem.find(".prod-price").html(pricePrefix + product.variants[0].discountedPrice);
+    if(product.variants[0].price){
+      var actualPrice = parseInt(product.variants[0].price);
+      var discount = (actualPrice - product.variants[0].discountedPrice)/actualPrice
+      newItem.find(".prod-fullprice").html(pricePrefix + actualPrice);
+      //newItem.find(".discount").html(Math.round(discount*100) + '% off');
+    }else{
+      newItem.find(".prod-fullprice").hide();
+      //newItem.find(".discount").hide();
+    }
+    if(!product.slug){
+      product.slug = "/product/" + product.id + "?uid=" + uid + "&pid=" + platformId;
+    }
+    //newItem.attr("onclick", "return openShoptype('" + stDomain + product.slug + "')");
+    newItem.attr("href", networkDomain + "/products?id=" + product.id);
+    newItem.find(".ad-productname").html(product.title);
+    newItem.find(".ad-productsliderimage").attr("src", product.primaryImageSrc.imageSrc);
+    newItem.find(".ad-productsliderimage").attr("srcset", "");
+  }
+  window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight-200) ) {
+        if(!loadingProducts){
+          loadingProducts = true;
+          getProducts();
+        }
+    }
+  };
+</script>
+      </div>
+    </div>
+
+    <div class="_4stories-block hidden"><a href="#" class="story-link collection-stories remove-margin-left w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a><a href="#" class="story-link collection-stories w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a><a href="#" class="story-link collection-stories w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a><a href="#" class="story-link collection-stories remove-margin-right w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="image-4 nav-image"><h2 class="story-headline">Veed Online</h2></a></div>
+    <div class="all-products-block hidden">
+      <div class="products-list">
+        <div class="products-block1 w-clearfix"><a href="#" class="prod-item hidden w-inline-block"><img src="https://images.assettype.com/veed/2020-05/f238a048-d9c0-4f88-a83f-698217f74407/Logo.png" alt="" class="ad-productsliderimage"><div class="product-details"><h3 class="ad-productname">Heading</h3><div class="price-block"><div class="prod-price"></div><div class="prod-fullprice"></div></div></div></a></div>
+      </div>
+    </div>
+  </div>
+  
